@@ -1,0 +1,10 @@
+router bgp {{ local_asn }}
+ {% for neighbor in neighbors %}
+ neighbor {{ neighbor['address'] }} remote-as {{ neighbor['remote_asn'] }}
+ {% endfor %}
+ !
+ address-famlily ipv4
+  {% for neighbor in neighbors %}
+  neighbor {{ neighbor['address'] }} activate
+  {% endfor %}
+ exit-address-famlily
