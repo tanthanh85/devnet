@@ -2,6 +2,9 @@ R1:
   local_asn: 11111
   neighbors:
     - remote_asn: 22222
-      address: '192.168.50.2'
-    - remote_asn: 33333
-      address: '192.168.53.3'
+      address: '2.2.2.2'
+R2:
+  local_asn: 22222
+  neighbors:
+    - remote_asn: 11111
+      address: '1.1.1.1'

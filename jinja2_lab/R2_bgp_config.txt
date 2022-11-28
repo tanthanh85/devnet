@@ -1,0 +1,10 @@
+router bgp 22222
+ 
+ neighbor 1.1.1.1 remote-as 11111
+ 
+ !
+ address-famlily ipv4
+  
+  neighbor 1.1.1.1 activate
+  
+ exit-address-famlily

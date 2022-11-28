@@ -1,0 +1,24 @@
+testbed:
+    name: IOS_Testbed
+    credentials:
+        default:
+            username: admin
+            password: cisco
+        enable:
+            password: cisco
+
+devices:
+    R1:
+        os: ios
+        type: ios
+        connections:
+            vty:
+                protocol: ssh
+                ip: 192.168.50.61
+    R2:
+        os: ios
+        type: ios
+        connections:
+            vty:
+                protocol: ssh
+                ip: 192.168.50.62

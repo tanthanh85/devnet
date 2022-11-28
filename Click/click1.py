@@ -23,7 +23,7 @@ def get_ospf():
     print(response.text)
 
 @cli.command()
-@click.option('--process_id', '-pid', required=True, default=1, type=click.Choice(['1', '2', '3']))
+@click.option('--process_id', '-pid', default=1, type=click.Choice(['1', '2', '3']))
 @click.option('--router_id', '-rid')
 def configure_ospf(process_id,router_id):
     uri = 'Cisco-IOS-XE-native:native/router/Cisco-IOS-XE-ospf:router-ospf/ospf/process-id'
