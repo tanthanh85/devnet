@@ -1,6 +1,9 @@
 router bgp {{ local_asn }}
  {% for neighbor in neighbors %}
  neighbor {{ neighbor['address'] }} remote-as {{ neighbor['remote_asn'] }}
+ neighbor {{ neighbor['address'] }} ebgp-multihop 2
+ neighbor 2.2.2.2 update-source {{ neighbor['update_source'] }}
+ no synchronization
  {% endfor %}
  !
  address-famlily ipv4

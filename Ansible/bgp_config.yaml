@@ -1,0 +1,22 @@
+---
+- name: BGP configuration
+  hosts: R1
+  gather_facts: False
+  tasks:
+    - name: 
+      ios_bgp:
+        config:
+          bgp_as: "{{ local_asn }}"
+          router_id: '1.1.1.1'
+          neighbors:
+          - neighbor: "{{ item.address }}"
+            remote_as: "{{ item.remote_asn }}"
+            ebgp_multihop: 2
+          networks:
+          - prefix: 11.11.11.11
+            masklen: 32
+        operation: merge
+      with_items: 
+      - "{{ neighbors }}"
+        
+        

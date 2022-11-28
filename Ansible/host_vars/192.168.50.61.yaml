@@ -1,0 +1,6 @@
+local_asn: 11111
+router_id: 1.1.1.1
+neighbors:
+  - remote_asn: 22222
+    address: '2.2.2.2'
+    update_source: 'Loopback0'

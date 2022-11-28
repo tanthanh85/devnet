@@ -1,6 +1,9 @@
 router bgp 22222
  
  neighbor 1.1.1.1 remote-as 11111
+ neighbor 1.1.1.1 ebgp-multihop 2
+ neighbor 2.2.2.2 update-source Loopback0
+ no synchronization
  
  !
  address-famlily ipv4
