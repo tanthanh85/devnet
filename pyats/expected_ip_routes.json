@@ -1,0 +1,148 @@
+{'R1': {'vrf': {'default': {'address_family': {'ipv4': {'routes': {'0.0.0.0/0': {'route': '0.0.0.0/0', 'active': True, 'metric': 0, 'route_preference': 1, 'source_protocol_codes': 'S*', 'source_protocol': 'static', 'next_hop': {'next_hop_list': {
+                                        1: {'index': 1, 'next_hop': '192.168.50.1'
+                                        }
+                                    }
+                                }
+                            }, '1.1.1.1/32': {'route': '1.1.1.1/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback0': {'outgoing_interface': 'Loopback0'
+                                        }
+                                    }
+                                }
+                            }, '2.2.2.2/32': {'route': '2.2.2.2/32', 'active': True, 'metric': 2, 'route_preference': 110, 'source_protocol_codes': 'O IA', 'source_protocol': 'ospf', 'next_hop': {'next_hop_list': {
+                                        1: {'index': 1, 'next_hop': '192.168.12.2', 'updated': '00: 15: 58', 'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '10.10.10.10/32': {'route': '10.10.10.10/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback10': {'outgoing_interface': 'Loopback10'
+                                        }
+                                    }
+                                }
+                            }, '10.255.255.0/24': {'route': '10.255.255.0/24', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet2': {'outgoing_interface': 'GigabitEthernet2'
+                                        }
+                                    }
+                                }
+                            }, '10.255.255.1/32': {'route': '10.255.255.1/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet2': {'outgoing_interface': 'GigabitEthernet2'
+                                        }
+                                    }
+                                }
+                            }, '11.11.11.11/32': {'route': '11.11.11.11/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback11': {'outgoing_interface': 'Loopback11'
+                                        }
+                                    }
+                                }
+                            }, '22.22.22.22/32': {'route': '22.22.22.22/32', 'active': True, 'metric': 0, 'route_preference': 20, 'source_protocol_codes': 'B', 'source_protocol': 'bgp', 'next_hop': {'next_hop_list': {
+                                        1: {'index': 1, 'next_hop': '2.2.2.2', 'updated': '00: 14: 28'
+                                        }
+                                    }
+                                }
+                            }, '100.100.100.100/32': {'route': '100.100.100.100/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback100': {'outgoing_interface': 'Loopback100'
+                                        }
+                                    }
+                                }
+                            }, '121.121.121.121/32': {'route': '121.121.121.121/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback1212': {'outgoing_interface': 'Loopback1212'
+                                        }
+                                    }
+                                }
+                            }, '192.168.12.0/30': {'route': '192.168.12.0/30', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet1': {'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '192.168.12.1/32': {'route': '192.168.12.1/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet1': {'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '192.168.35.0/24': {'route': '192.168.35.0/24', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'VirtualPortGroup0': {'outgoing_interface': 'VirtualPortGroup0'
+                                        }
+                                    }
+                                }
+                            }, '192.168.35.1/32': {'route': '192.168.35.1/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'VirtualPortGroup0': {'outgoing_interface': 'VirtualPortGroup0'
+                                        }
+                                    }
+                                }
+                            }, '192.168.50.0/24': {'route': '192.168.50.0/24', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet26': {'outgoing_interface': 'GigabitEthernet26'
+                                        }
+                                    }
+                                }
+                            }, '192.168.50.61/32': {'route': '192.168.50.61/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet26': {'outgoing_interface': 'GigabitEthernet26'
+                                        }
+                                    }
+                                }
+                            }, '192.168.122.0/24': {'route': '192.168.122.0/24', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet1': {'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '192.168.122.1/32': {'route': '192.168.122.1/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet1': {'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '192.168.123.0/24': {'route': '192.168.123.0/24', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet2': {'outgoing_interface': 'GigabitEthernet2'
+                                        }
+                                    }
+                                }
+                            }, '192.168.123.1/32': {'route': '192.168.123.1/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet2': {'outgoing_interface': 'GigabitEthernet2'
+                                        }
+                                    }
+                                }
+                            }, '222.222.222.222/32': {'route': '222.222.222.222/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback222': {'outgoing_interface': 'Loopback222'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }, 'R2': {'vrf': {'default': {'address_family': {'ipv4': {'routes': {'1.1.1.1/32': {'route': '1.1.1.1/32', 'active': True, 'metric': 2, 'route_preference': 110, 'source_protocol_codes': 'O IA', 'source_protocol': 'ospf', 'next_hop': {'next_hop_list': {
+                                        1: {'index': 1, 'next_hop': '192.168.12.1', 'updated': '00: 15: 57', 'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '2.2.2.2/32': {'route': '2.2.2.2/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback0': {'outgoing_interface': 'Loopback0'
+                                        }
+                                    }
+                                }
+                            }, '11.11.11.11/32': {'route': '11.11.11.11/32', 'active': True, 'metric': 0, 'route_preference': 20, 'source_protocol_codes': 'B', 'source_protocol': 'bgp', 'next_hop': {'next_hop_list': {
+                                        1: {'index': 1, 'next_hop': '1.1.1.1', 'updated': '00: 14: 28'
+                                        }
+                                    }
+                                }
+                            }, '22.22.22.22/32': {'route': '22.22.22.22/32', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'Loopback22': {'outgoing_interface': 'Loopback22'
+                                        }
+                                    }
+                                }
+                            }, '192.168.12.0/30': {'route': '192.168.12.0/30', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet1': {'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '192.168.12.2/32': {'route': '192.168.12.2/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet1': {'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }, '192.168.23.0/30': {'route': '192.168.23.0/30', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet2': {'outgoing_interface': 'GigabitEthernet2'
+                                        }
+                                    }
+                                }
+                            }, '192.168.23.1/32': {'route': '192.168.23.1/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet2': {'outgoing_interface': 'GigabitEthernet2'
+                                        }
+                                    }
+                                }
+                            }, '192.168.50.0/24': {'route': '192.168.50.0/24', 'active': True, 'source_protocol_codes': 'C', 'source_protocol': 'connected', 'next_hop': {'outgoing_interface': {'GigabitEthernet26': {'outgoing_interface': 'GigabitEthernet26'
+                                        }
+                                    }
+                                }
+                            }, '192.168.50.62/32': {'route': '192.168.50.62/32', 'active': True, 'source_protocol_codes': 'L', 'source_protocol': 'local', 'next_hop': {'outgoing_interface': {'GigabitEthernet26': {'outgoing_interface': 'GigabitEthernet26'
+                                        }
+                                    }
+                                }
+                            }, '192.168.122.0/24': {'route': '192.168.122.0/24', 'active': True, 'metric': 2, 'route_preference': 110, 'source_protocol_codes': 'O', 'source_protocol': 'ospf', 'next_hop': {'next_hop_list': {
+                                        1: {'index': 1, 'next_hop': '192.168.12.1', 'updated': '00: 15: 57', 'outgoing_interface': 'GigabitEthernet1'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
