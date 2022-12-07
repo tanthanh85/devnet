@@ -1,14 +1,21 @@
 
 
 import hvac
-from hvac.exceptions import InvalidPath
+from hvac.exceptions import *
 import urllib3
 urllib3.disable_warnings()
+from requests.exceptions import SSLError
+import os
 
-VAULT_ADDRESS = 'https://192.168.50.27:8200'
-VAULT_TOKEN = 'hvs.gbTTZLMI0canwYJpsKtN8bLR'
+VAULT_ADDRESS = 'https://vault.example.com:8200'
+VAULT_TOKEN = 'hvs.rjvceBBfSDK19HKi4D08eiwo'
 try:
-    client = hvac.Client(url=VAULT_ADDRESS,token=VAULT_TOKEN,verify=False)
+    os.environ['REQUESTS_CA_BUNDLE'] = '/Users/thandoan/devnet/jinja2_lab/ca.cert'
+    
+    client = hvac.Client(url=VAULT_ADDRESS,token=VAULT_TOKEN,cert=('jinja2_lab/client.cert','jinja2_lab/client.key'))
+    rs = client.session
+    rs.verify='/Users/thandoan/devnet/jinja2_lab/server.cert'
+
     if client.is_authenticated():
         print('successfully authenticated to Vault server')
         print("getting R1's login information from Vault server")
@@ -22,6 +29,9 @@ try:
 
 except InvalidPath as e:
     print(e)
+
+except SSLError as e:
+  print(e)
 
 connection_info = {
 
@@ -52,3 +62,6 @@ connection_info = {
 
 
 }
+
+if __name__ == '__main__':
+  print(connection_info)
