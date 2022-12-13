@@ -3,6 +3,7 @@ from pyats.topology.loader import load as load_tb
 from pyats import aetest
 
 
+
 tb = load_tb("testbed.yaml")
 
 class CommonSetup(aetest.CommonSetup):

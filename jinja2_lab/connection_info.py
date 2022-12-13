@@ -10,17 +10,16 @@ import os
 VAULT_ADDRESS = 'https://vault.example.com:8200'
 VAULT_TOKEN = 'hvs.rjvceBBfSDK19HKi4D08eiwo'
 try:
-    os.environ['REQUESTS_CA_BUNDLE'] = '/Users/thandoan/devnet/jinja2_lab/ca.cert'
-    
+    os.environ['REQUESTS_CA_BUNDLE'] = '/Users/thandoan/devnet/jinja2_lab/ca.cert'    
     client = hvac.Client(url=VAULT_ADDRESS,token=VAULT_TOKEN,cert=('jinja2_lab/client.cert','jinja2_lab/client.key'))
     rs = client.session
     rs.verify='/Users/thandoan/devnet/jinja2_lab/server.cert'
 
     if client.is_authenticated():
         print('successfully authenticated to Vault server')
-        print("getting R1's login information from Vault server")
+        print("retrieving R1's login information from Vault server")
         R1 = client.secrets.kv.v2.read_secret_version(mount_point='kv',path='R1')
-        print("getting R2's login information from Vault server")
+        print("retrieving R2's login information from Vault server")
         R2 = client.secrets.kv.v2.read_secret_version(mount_point='kv',path='R2')
         
     else:
