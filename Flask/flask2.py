@@ -1,6 +1,6 @@
-from flask import Flask,request
+from flask import Flask
 from IOSXE import IOSXE
-from flask_restx import Resource, Api, reqparse, fields
+from flask_restx import Resource, Api
 
 iosxe = IOSXE()
 app = Flask(__name__)
@@ -8,22 +8,15 @@ app = Flask(__name__)
 api = Api(app,version='1.0', title='SIMPLE IOSXE FLASK RESTX PAGE', description="This is a simple IOSXE Flask Restx document")
 ns = api.namespace('IOSXE Flask-RESTX sample', description="Flask-RESTX sample")
 
-
 parser = api.parser()
-parser.add_argument("area_id", type=str, required=False, help="OSPF Area ID example: 0, 1, 2, ...", location="form")
+parser.add_argument("area_id", type=str, required=True, help="OSPF Area ID example: 0, 1, 2, ...", location="form")
 parser.add_argument("int_id", type=str, required=True, help="GigabitEthernet Interface ID: 1, 2, ...", location="form")
-
-
-
-# @ns.route('/')
-# def hello_world():
-#     return "hello world"
 
 @ns.route('/getospf/<int_id>')
 @api.doc(response={404: 'not found'})
 @api.doc(response={200: 'successful'})
 @api.doc(params={'int_id': 'Retrieve OSPF configuration on a GigabitEthernet interface'})
-class QueryInterfaces(Resource):
+class QueryOSPFInterfaceConfig(Resource):
     def get(self,int_id):
         uri = f'Cisco-IOS-XE-native:native/interface/GigabitEthernet={int_id}/ip/Cisco-IOS-XE-ospf:router-ospf/ospf/process-id'
         response = iosxe.get_data(uri)
@@ -35,7 +28,7 @@ class QueryInterfaces(Resource):
 @api.doc(responses={500: "Internal Server Error"})
 @api.doc(responses={201: "success"})
 @api.doc(responses={200: "success"})
-class InterfaceToOSPF(Resource):
+class AssignInterfaceToOSPF(Resource):
     @api.doc(parser=parser)
     def patch(self):
         args = parser.parse_args()
@@ -59,10 +52,6 @@ class InterfaceToOSPF(Resource):
             return "successfully added interface GigabitEthernet{id} to OSPF in area {area} ".format(id=int_id, area=area_id)
         else:
             return "Failed with " + str(response)
-
-
-
-
 
 
 if __name__ == '__main__':
