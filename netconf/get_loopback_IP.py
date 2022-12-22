@@ -15,6 +15,7 @@ def get_ip(m, list_interfaces):
                   <address>
                     <primary>
                       <address/>
+                      <mask/>
                     </primary>
                   </address>
                 </ip>
@@ -24,7 +25,8 @@ def get_ip(m, list_interfaces):
     '''
     lo = m.get(('subtree',filter))
     lo_dict = xmltodict.parse(lo.xml)
-    print(lo_dict['rpc-reply']['data']['native']['interface']['Loopback']['ip']['address']['primary']['address'])
+    print(f"here is the IP address and subnet mask of interface loopback{loopback_number}")
+    return lo_dict['rpc-reply']['data']['native']['interface']['Loopback']['ip']['address']['primary']['address'], lo_dict['rpc-reply']['data']['native']['interface']['Loopback']['ip']['address']['primary']['mask']
   else:
     print("invalid input")
 
@@ -49,6 +51,7 @@ def retrieve_list_of_loopback_interfaces(m):
 
 
 if __name__ == '__main__':
+
   with manager.connect(**R1) as m:
     print(m.connected)
     print("here are the available loopback interfaces on R1: ")
