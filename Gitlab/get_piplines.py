@@ -16,5 +16,4 @@ if __name__ == '__main__':
     table.field_names = ["Pipeline ID", "Pipeline Status", "Pipeline Ref", "Pipeline Source"]
     for pipeline in pipelines:
         table.add_row([pipeline['id'], pipeline['status'], pipeline['ref'], pipeline['source']])
-
     print(table)
