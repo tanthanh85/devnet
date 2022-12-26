@@ -1,10 +1,7 @@
 import requests
 from dnac_login import get_token
-# from prettytable import PrettyTable
 import json
 import time
-
-# table = PrettyTable()
 
 status_code, token = get_token()
 
@@ -37,7 +34,8 @@ if __name__ == '__main__':
     status_code, flow_id = post_pathtrace(token=token)
     print(flow_id)
     time.sleep(5)
-
-    print(get_flow_details(token=token,flow_id=flow_id))
+    print(status_code)
+    if status_code == 202:
+        print(get_flow_details(token=token,flow_id=flow_id))
 
     
