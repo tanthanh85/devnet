@@ -6,25 +6,7 @@ import xmltodict
 def get_ip(m, list_interfaces):
   loopback_number = input("what is the loopback interface?: ")
   if loopback_number in list_interfaces:
-    filter = f'''
-    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
-            <interface>
-              <Loopback>
-                <name>{loopback_number}</name>
-                <ip>
-                  <address>
-                    <primary>
-                      <address/>
-                      <mask/>
-                    </primary>
-                  </address>
-                </ip>
-              </Loopback>
-            </interface>
-          </native>
-    '''
     xpath_filter = f"/native/interface/Loopback[name={loopback_number}]/ip/address/primary"
-    
     lo = m.get(('xpath',xpath_filter))
     print(lo.xml)
     lo_dict = xmltodict.parse(lo.xml)
@@ -37,22 +19,13 @@ def get_ip(m, list_interfaces):
     print("invalid input")
 
 def retrieve_list_of_loopback_interfaces(m):
-  filter = '''
-  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
-        <interface>
-          <Loopback>
-            <name/>
-          </Loopback>
-        </interface>
-      </native>
-  '''
-  interface_list = m.get(('subtree',filter))
+  xpath_filter = "/native/interface/Loopback/name"
+  interface_list = m.get(('xpath',xpath_filter))
   interface_dict = xmltodict.parse(interface_list.xml)
   loopback_list = []
   for interface in interface_dict['rpc-reply']['data']['native']['interface']['Loopback']:
     # print(interface['name'])
     loopback_list.append(interface['name'])
-  
   return loopback_list
 
 
