@@ -15,23 +15,12 @@ variable "tenant" {
   
 }
 
-variable "ANDY_VRF" {
+variable "VRF" {
   type = map(any)
   default = {
-    "DEVNET_ANDY" = ["PRODUCTION", "DEVELOPMENT"]
+    "DEVNET_ANDY" = ["PRODUCTION", "DEVELOPMENT", "GUEST"]
+    "DEVNET_NICKY" = ["PRODUCTION", "DEVELOPMENT", "FACTORY"]
+    "DEVNET_KEVIN" = ["PRODUCTION", "DEVELOPMENT", "SALES"]
   }
 }
 
-variable "NICKY_VRF" {
-  type = map(any)
-  default = {
-    "DEVNET_NICKY" = ["PRODUCTION", "DEVELOPMENT"]
-  }
-}
-
-variable "KEVIN_VRF" {
-  type = map(any)
-  default = {
-    "DEVNET_KEVIN" = ["PRODUCTION", "DEVELOPMENT"]
-  }
-}

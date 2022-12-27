@@ -19,9 +19,22 @@ provider "aci" {
   insecure    = true
 }
 
+# resource "aci_tenant" "devnet" {
+#   for_each = toset(var.tenant)
+#   name = each.value
+# }
+
 resource "aci_tenant" "devnet" {
-  for_each = toset(var.tenant)
+  for_each = {for t in var.tenant: t => t}
   name = each.value
+}
+
+output "test" {
+  value = {for t in var.tenant: t => t}
+}
+
+output "ACI_TENANTS" {
+  value = resource.aci_tenant.devnet["DEVNET_ANDY"].id
 }
 
 
@@ -33,17 +46,17 @@ resource "aci_tenant" "devnet" {
   
 # }
 
-data "aci_tenant" "TN-ANDY" {
-  name = "DEVNET_ANDY"
-}
+# data "aci_tenant" "TN-ANDY" {
+#   name = "DEVNET_ANDY"
+# }
 
-data "aci_tenant" "TN-NICKY" {
-  name = "DEVNET_NICKY"
-}
+# data "aci_tenant" "TN-NICKY" {
+#   name = "DEVNET_NICKY"
+# }
 
-data "aci_tenant" "TN-KEVIN" {
-  name = "DEVNET_KEVIN"
-}
+# data "aci_tenant" "TN-KEVIN" {
+#   name = "DEVNET_KEVIN"
+# }
 
 
 
@@ -54,21 +67,21 @@ data "aci_tenant" "TN-KEVIN" {
 #   name = each.value
 # }
 
-resource "aci_vrf" "ANDY-vrf" {
-  tenant_dn = data.aci_tenant.TN-ANDY.id
-  for_each = toset(var.ANDY_VRF["DEVNET_ANDY"])
+resource "aci_vrf" "ANDY-VRF" {
+  tenant_dn = resource.aci_tenant.devnet["DEVNET_ANDY"].id
+  for_each = toset(var.VRF["DEVNET_ANDY"])
   name = each.value
 }
 
-resource "aci_vrf" "NICKY-vrf" {
-  tenant_dn = data.aci_tenant.TN-NICKY.id
-  for_each = toset(var.NICKY_VRF["DEVNET_NICKY"])
+resource "aci_vrf" "NICKY-VRF" {
+  tenant_dn = resource.aci_tenant.devnet["DEVNET_NICKY"].id
+  for_each = toset(var.VRF["DEVNET_NICKY"])
   name = each.value
 }
 
-resource "aci_vrf" "KEVIN-vrf" {
-  tenant_dn = data.aci_tenant.TN-KEVIN.id
-  for_each = toset(var.KEVIN_VRF["DEVNET_KEVIN"])
+resource "aci_vrf" "KEVIN-VRF" {
+  tenant_dn = resource.aci_tenant.devnet["DEVNET_KEVIN"].id
+  for_each = toset(var.VRF["DEVNET_KEVIN"])
   name = each.value
 }
 
