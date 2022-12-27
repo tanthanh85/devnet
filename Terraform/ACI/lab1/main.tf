@@ -29,13 +29,13 @@ resource "aci_tenant" "devnet" {
   name = each.value
 }
 
-output "test" {
-  value = {for t in var.tenant: t => t}
-}
+# output "test" {
+#   value = {for t in var.tenant: t => t}
+# }
 
-output "ACI_TENANTS" {
-  value = resource.aci_tenant.devnet["DEVNET_ANDY"].id
-}
+# output "ACI_TENANTS" {
+#   value = resource.aci_tenant.devnet["DEVNET_ANDY"].id
+# }
 
 
 
