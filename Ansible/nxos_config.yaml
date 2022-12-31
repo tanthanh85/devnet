@@ -1,0 +1,30 @@
+---
+ - name: NXOS playbook
+   hosts: nxos
+   gather_facts: no
+   tasks:
+    - name: task 1
+      nxos_config:
+        lines: hostname NXOS01
+        save_when: modified
+    - cisco.nxos.nxos_config:
+        lines:
+        - 10 permit ip 192.0.2.1/32 any log
+        - 20 permit ip 192.0.2.2/32 any log
+        - 30 permit ip 192.0.2.3/32 any log
+        - 40 permit ip 192.0.2.4/32 any log
+        parents: ip access-list test
+        before: no ip access-list test
+        replace: block
+    - name: Ensure ospf is disabled
+      cisco.nxos.nxos_feature:
+        feature: ospf
+        state: enabled
+    - name: Merge provided configuration with device configuration.
+      cisco.nxos.nxos_vlans:
+        config:
+        - vlan_id: 5
+          name: test-vlan5
+        - vlan_id: 10
+          enabled: false
+        state: merged

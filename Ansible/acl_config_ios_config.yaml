@@ -13,6 +13,16 @@
   - name: print hostname
     debug:
       var: ansible_facts
+  # - name: config acl
+  #   ios_config:
+  #     lines:
+  #     -  "{{ item.seq }} {{ item.action }} {{ item.protocol }} any host {{ item.dest_host }} eq {{ item.dest_port }}"
+  #     parents:
+  #     - ip access-list extended INTERNET
+  #   with_items:
+  #     - "{{ acl.RULES }}"
+  #   when: ansible_host == "192.168.50.61"
+
   - name: config acl
     ios_config:
       lines:
