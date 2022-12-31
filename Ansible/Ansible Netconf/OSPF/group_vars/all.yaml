@@ -1,0 +1,10 @@
+ansible_user: admin
+ansible_password: cisco
+ansible_connection: netconf
+ansible_network_os: default
+ansible_netconf_user: admin
+ansible_netconf_password: cisco
+ansible_netconf_port: 830
+ansible_netconf_host_key_checking: no
+look_for_keys: no
+ansible_connect_timeout: 90

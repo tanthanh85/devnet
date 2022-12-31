@@ -1,7 +1,0 @@
-ansible_user: admin
-ansible_password: cisco
-ansible_connection: netconf
-ansible_network_os: ios
-ansible_netconf_user: admin
-ansible_netconf_password: cisco
-ansible_netconf_port: 830

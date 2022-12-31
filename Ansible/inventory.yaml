@@ -8,4 +8,9 @@ all:
         R2:
           hosts:
             192.168.50.62:
+    nxos:
+      children:
+        SW1:
+          hosts:
+            192.168.50.63
 

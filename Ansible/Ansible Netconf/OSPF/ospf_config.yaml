@@ -1,0 +1,78 @@
+---
+- name: EIGRP configuration on R1
+  hosts: R1
+  gather_facts: no
+  tasks:
+    # - name: netconf get
+    #   netconf_get:
+    #     display: json
+    #     # filter: |
+    #     #   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    #     #     <hostname/>
+    #     #   </native>
+    #     filter: "/native/hostname"
+    #   register: output
+    # - name: display output
+    #   debug:
+    #     # msg: output
+    #     var: output.stdout_lines
+    #   when: output.output['data']['native']['hostname'] == "R1"
+    # - name: OSPF config
+    #   netconf_config:
+    #     target: running
+    #     format: xml
+    #     content: |
+    #         <config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0>
+    #           <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    #             <router>
+    #               <router-ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+    #                 <ospf>
+    #                   <process-id>
+    #                     <id>1</id>
+    #                     <router-id>1.1.1.1</router-id>
+    #                   </process-id>
+    #                 </ospf>
+    #               </router-ospf>
+    #             </router>
+    #           </native>
+    #         </config>
+    - name: netconf edit-config
+      # netconf_config:
+      #   target: running
+      #   commit: no
+      #   format: xml
+      #   content: |
+      #     <config>
+      #       <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      #         <interface>
+      #           <Loopback>
+      #             <name>0</name>
+      #             <description>test</description>
+      #           </Loopback>
+      #         </interface>
+      #       </native>
+      #     </config>
+      netconf_config:
+        # datastore: running
+        content: |
+            <config>
+              <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+                <interface>
+                  <name>Loopback1001</name>
+                  <description>Pod Number 100</description>
+                  <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
+                    ianaift:softwareLoopback
+                  </type>
+                  <enabled>true</enabled>
+                  <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+                    <address>
+                      <ip>10.111.100.3</ip>
+                      <netmask>255.255.255.255</netmask>
+                    </address>
+                  </ipv4>
+                </interface>
+              </interfaces>
+            </config>
+        
+        
+        
