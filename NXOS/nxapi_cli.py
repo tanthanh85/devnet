@@ -7,6 +7,8 @@ headers = {
 
 
 command = 'show ip int bri'
+
+# This payload is from NXAPI sandbox
 payload = {
   "ins_api": {
     "version": "1.0",
