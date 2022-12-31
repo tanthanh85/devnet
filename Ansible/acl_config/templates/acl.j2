@@ -1,0 +1,6 @@
+{% for acl in ACCESS_LISTS %}
+ip access-list extended {{acl.name}}
+  {% for rule in acl.RULES %}
+  {{rule.seq}} permit {{rule.protocol}} any host {{rule.dest_host}} eq {{rule.dest_port}}
+  {% endfor %}
+{% endfor %}

@@ -1,9 +1,8 @@
-ansible_connection: network_cli
-local_asn: 11111
-router_id: 1.1.1.1
+local_asn: 22222
+router_id: 2.2.2.2
 neighbors:
-  - remote_asn: 22222
-    address: '2.2.2.2'
+  - remote_asn: 11111
+    address: '1.1.1.1'
     update_source: 'Loopback0'
   - remote_asn: 33333
     address: '3.3.3.3'

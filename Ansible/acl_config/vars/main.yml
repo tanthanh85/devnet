@@ -1,0 +1,17 @@
+---
+# vars file for acl_config
+ACCESS_LISTS:
+  - name: INTERNET
+    RULES:
+    - seq: 10
+      source: any
+      dest_host: 8.8.8.8
+      dest_port: 53
+      action: permit
+      protocol: tcp
+    - seq: 20
+      source: any
+      dest_host: 8.8.8.8
+      dest_port: 53
+      action: permit
+      protocol: udp     

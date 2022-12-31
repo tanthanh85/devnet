@@ -1,0 +1,12 @@
+---
+- name: config ACL
+  hosts: R1
+  gather_facts: no
+  # role at playbook level
+  # roles:
+  # - acl_config
+  tasks:
+  - name: config acl
+    # role at task level
+    include_role: 
+     name: acl_config

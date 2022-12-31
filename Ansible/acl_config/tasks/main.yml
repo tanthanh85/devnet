@@ -1,0 +1,19 @@
+---
+# tasks file for acl_config role
+# - name: create an extended acl using IOS_CONFIG module
+#   ios_config:
+#    lines:
+#    - permit tcp any host 8.8.8.8 eq 53
+#    - permit udp any host 8.8.8.8 eq 53
+#    parents:
+#    - ip access-list extended INTERNET
+#    before:
+#    - no ip access-list extended INTERNET
+
+- name: generate an extended acl using template module
+  template:
+   src: acl.j2
+   dest: acl.txt
+- name: config acl to device
+  ios_config:
+    src: acl.txt

@@ -1,4 +1,3 @@
-ansible_connection: network_cli
 local_asn: 11111
 router_id: 1.1.1.1
 neighbors:

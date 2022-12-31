@@ -1,0 +1,4 @@
+ip access-list extended INTERNET
+    10 permit tcp any host 8.8.8.8 eq 53
+    20 permit udp any host 8.8.8.8 eq 53
+  

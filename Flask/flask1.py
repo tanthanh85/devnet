@@ -27,7 +27,7 @@ def get_interfaces():
 @app.route('/int_to_ospf')
 # @api.doc(response={404: 'not found'})
 # @api.doc(response={200: 'successful'})
-#how to call: http://127.0.0.1:5000/int_to_ospf?int_id=4&area_id=4
+# how to call: http://127.0.0.1:5000/int_to_ospf?int_id=4&area_id=4
 def int_to_ospf():
     args = request.args  
     int_id = args.get('int_id')
