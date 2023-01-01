@@ -12,6 +12,10 @@ def get_sites(token):
         'Content-Type': 'application/json',
         'x-auth-token': token
     }
+    
+    # export token=$(curl -s -X POST https://sandboxdnac2.cisco.com/dna/system/api/v1/auth/token -H "Authorization: Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE=" | jq -r .Token)
+    # export dnac_headers=x-auth-token:$token
+    # curl -H $dnac_headers https://sandboxdnac2.cisco.com/dna/intent/api/v1/site
     url = 'https://sandboxdnac2.cisco.com/dna/intent/api/v1/site'
 
     response = requests.get(url=url,headers=headers,verify=False)
