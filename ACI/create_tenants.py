@@ -1,28 +1,30 @@
-from aci_login import get_token
+import os
 import requests
+import urllib3
+urllib3.disable_warnings()
 
-token = get_token()
 
-tenant_name = "Tenant_Andy"
+token = os.getenv("ACI_TOKEN")
 
-headers = {
-    'Cookie': f'APIC-Cookie={token}'
-}
+TENANT_NAME = "Tenant_Andy"
 
-payload = {
-    "fvTenant": {
-        "attributes": {
-        "name": tenant_name
-        }
-    }
-}
+headers = {"Cookie": f"APIC-Cookie={token}"}
 
-url = "https://sandboxapicdc.cisco.com/api/mo/uni.json"
+payload = {"fvTenant": {"attributes": {"name": TENANT_NAME}}}
+
+# payload = {"fvTenant": {"attributes": {"name": "Nicky"}}}
+
+URL = "https://sandboxapicdc.cisco.com/api/mo/uni.json"
+
+# curl -X POST -H Cookie:APIC-Cookie=$ACI_TOKEN -d '{"fvTenant": {"attributes": {"name": "Kevin"}}}' https://sandboxapicdc.cisco.com/api/mo/uni.json
 
 def create_tenants():
-    response = requests.post(url=url,headers=headers,json=payload,verify=False)
+    response = requests.post(
+        url=URL, headers=headers, json=payload, verify=False, timeout=15
+    )
     return response.status_code
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     status_code = create_tenants()
     print(status_code)
