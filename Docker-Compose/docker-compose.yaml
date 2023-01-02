@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    restart: always
+    depends_on:
+      - redis
+    volumes:
+      - type: bind
+        source: /home/expert/code/Docker-Compose/composetest
+        target: /code
+        read_only: true
+      - type: volume
+        source: myapp
+        target: /data
+        read_only: false
+    
+    networks:
+      - frontend
+      - backend
+    environment:
+      - FLASK_DEBUG=True
+  redis:
+    image: "redis:alpine"
+    networks:
+      - backend
+  
+volumes:
+  myapp:
+
+networks:
+  frontend:
+    name: frontend_network
+  backend:
+    name: backend_network
