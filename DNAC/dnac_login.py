@@ -10,7 +10,7 @@ headers = {
 url = 'https://sandboxdnac2.cisco.com/dna/system/api/v1/auth/token'
 
 
-
+# echo -n "devnetuser:Cisco123!" | base64   >>>>> this for preventing echo to add a new line
 # curl -s -X POST \
 # https://sandboxdnac2.cisco.com/dna/system/api/v1/auth/token \
 # -H "Authorization: Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE="
